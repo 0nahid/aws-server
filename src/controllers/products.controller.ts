@@ -33,4 +33,20 @@ const getAllProducts = async (req: Request, res: Response) => {
   }
 };
 
-export const productsRouter = { createProduct, getAllProducts };
+// get single data
+const getAProduct = async (req: Request, res: Response) => {
+  try {
+    const product = await ProductModel.findById(req.params.id);
+    res.status(200).json({
+      status: "success",
+      data: product,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: "fail",
+      message: error,
+    });
+  }
+};
+
+export const productsRouter = { createProduct, getAllProducts, getAProduct };

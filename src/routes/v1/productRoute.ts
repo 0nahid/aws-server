@@ -4,4 +4,5 @@ const router: Router = Router();
 
 router.post("/", productsRouter.createProduct);
 router.get("/", productsRouter.getAllProducts);
+router.get("/:id", productsRouter.getAProduct);
 export default router;
